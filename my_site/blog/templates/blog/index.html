@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    My Blog!
+{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "blog/posts.css" %}"/>
+<link rel="stylesheet" href="{% static "blog/index.css" %}"/>
+{% endblock %}
+
+{% block content %}
+<section id="welcome">
+    <header>
+        <img src="{% static "blog/images/luigi.png" %}" alt="Angelo - The Author of this Blog">
+        <h2>Angelo's Blog</h2>
+    </header>
+    <p>Hi, Im Angelo! I am going to blog about whatever</p>
+</section>
+
+<section id="latest-posts">
+    <h2>My Latest Thoughts</h2>
+    <ul>
+        {% for post in posts  %}
+            {% include "blog/includes/posts.html" %}
+        {% endfor %}
+    </ul>
+</section>
+
+<section id="about">
+    <h2>What I Do</h2>
+    <p>
+        I am a Network Automation Engineer at NTC!
+    </p>
+    <p>
+        Always Learning, Testing and most importantly, breaking things!
+    </p>
+</section>
+{% endblock %}
